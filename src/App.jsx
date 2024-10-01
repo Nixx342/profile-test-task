@@ -3,6 +3,14 @@ import logo from './assets/8z-logo.svg'
 import phone from './assets/phone.svg'
 import exit from './assets/exit-btn.svg'
 import gift from './assets/gift.svg'
+import applications from './assets/applications.svg'
+import profile from './assets/profile.svg'
+import events from './assets/events.svg'
+import services from './assets/services.svg'
+import consultation from './assets/consultation.svg'
+import education from './assets/education.svg'
+import about from './assets/about.svg'
+import profileLogo from './assets/profile-logo.svg'
 import MenuItem from './Components/MenuItem'
 
 function App() {
@@ -24,18 +32,27 @@ function App() {
       </header>
       <main>
         <div className='menu'>
-          <MenuItem text="Мои заявки"/>
-          <div className='menu-item'>Мои заявки</div>
-          <div className='menu-item'>Профиль</div>
-          <div className='menu-item'>События</div>
-          <div className='menu-item'>Услуги</div>
-          <div className='menu-item'>Консультация</div>
-          <div className='menu-item'>Обучение</div>
-          <div className='menu-item'>О сервисе</div>
+          <MenuItem text="Мои заявки" src={applications}/>
+          <MenuItem text="Профиль" src={profile}/>
+          <MenuItem text="События" src={events}/>
+          <MenuItem text="Услуги" src={services}/>
+          <MenuItem text="Консультация" src={consultation}/>
+          <MenuItem text="Обучение" src={education}/>
+          <MenuItem text="О сервисе" src={about}/>
           <button className='menu-btn'>
             <img className='gift-logo' src={gift} alt='gift'/>
             Мои предложения
           </button>
+        </div>
+        <div className='main-block'>
+          <div className='head-main'>
+            <span className='head-name'>
+              <img className='main-head-logo' src={profileLogo} alt="profile-logo" />
+              <span className='main-head-text'>Профиль</span>
+            </span>
+
+            <span></span>
+          </div>
         </div>
       </main>
     </>
