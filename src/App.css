@@ -1,0 +1,105 @@
+header {
+  width: 1464px;
+  height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 45px;
+}
+.logo {
+  width: 124.2px;
+  height: 45.53px;
+}
+
+.btn-phone-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 357px;
+  height: 51px;
+}
+
+.phone{
+  width: 208px;
+  color: #444444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 25.78px;
+}
+.phone-logo {
+  width: 31px;
+  height: 31px;
+}
+
+.exit-btn{
+  display: flex;
+  align-items: center;
+  width: 128px;
+  height: 37px;
+  background: linear-gradient(180deg, #FFBD4C 0%, #D87B03 100%);
+  border: none;
+  border-radius: 50px 50px 50px 50px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+.exit-btn:hover{
+  background: #FFBD4C;
+  cursor: pointer;
+}
+
+
+main {
+  margin-top: 47px;
+  width: 1464px;
+  /* height: 50vh; */
+  /* background-color: #444444; */
+}
+.menu{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  width: 322px;
+  height: 538px;
+  background-color: #FFFFFF;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 1px 1px 4px 0px #0000002B;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+.menu-item {
+  width: 294px;
+  height: 50px;
+  margin-bottom: 14px;
+  color: #444444;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+/*.menu-item:hover */
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 294px;
+  height: 46px  ;
+  background: linear-gradient(180deg, #FFBD4C 0%, #D87B03 100%);
+  border: none;
+  border-radius: 110px 110px 110px 110px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #FFFFFF;
+}
+.gift-logo{
+  margin-right: 10px;
+}
+
+/* background: linear-gradient(180deg, #FFBD4C 0%, #D87B03 100%); */
