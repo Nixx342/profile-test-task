@@ -1,5 +1,5 @@
 header {
-  width: 1464px;
+  /* width: 1464px; */
   height: 51px;
   display: flex;
   align-items: center;
@@ -38,6 +38,7 @@ header {
 .exit-btn{
   display: flex;
   align-items: center;
+  /* justify-content: space-around; */
   width: 128px;
   height: 37px;
   background: linear-gradient(180deg, #FFBD4C 0%, #D87B03 100%);
@@ -48,9 +49,14 @@ header {
   font-size: 16px;
   color: #FFFFFF;
 }
-.exit-btn:hover{
+.exit-btn:hover {
   background: #FFBD4C;
   cursor: pointer;
+}
+.exit-logo {
+  margin-left: 4px;
+  margin-right: 4px;
+  /* box-shadow: 1px 1px 4px 0px #0000002B; */
 }
 
 
@@ -120,10 +126,11 @@ main {
 .main-head-logo {
   margin-right: 18px;
 }
-.main-head-text { 
+.main-head-text{ 
   font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 26px;
+  color: #444444;
 }
 
 .edit-block {
@@ -137,6 +144,10 @@ main {
 }
 .edit-btn {
   cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: #444444;
 }
 
 .notice {
@@ -157,6 +168,7 @@ main {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 18px;
+  color: #444444;
 }
 
 .profile-info{
@@ -165,24 +177,114 @@ main {
   box-shadow: 1px 1px 4px 0px #0000002B;
   border-radius: 10px 10px 10px 10px;
   margin-top: 26px;
+  padding: 27px 34px;
 }
 
 .personal-info {
   /* height: 500px; */
-  margin: 27px 34px 0;
+  /* margin: 27px 34px 0; */
   padding-bottom: 38px;
   border-bottom: 1px solid #CDCDCD;
   display: flex;
   justify-content: space-between;
 }
-
+.info-name {
+  margin-bottom: 22px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: #444444;
+}
 .data-card {
   width: 484px;
   text-align: left;
 }
 
 .settings {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  margin: 27px 34px 0;
-  padding-bottom: 27px;
+  margin-top: 38px;
 }
+.settings-element {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #444444;
+}
+.checkbox {
+  margin-right: 8px;
+}
+
+footer { 
+  background-color: #FFFFFF;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  border-radius: 60px 60px 0 0;
+  display: flex;
+  justify-content: center;
+  /* Убрать высоту */
+  height: 300px; 
+  /*  */
+}
+.footer-content {
+  width: calc(100vw - 452px);
+  
+  /* margin: 226px, 20px, 0; */
+}
+.footer-content-top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+}
+.links-block {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #444444;
+}
+.legal-information {
+  display: flex;
+}
+.legal-information-text {
+  width: 50%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #444444;
+}
+.money-icon {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+.small-money {
+  width: 46;
+  height: 43;
+}
+.big-money {
+  width: 78;
+  height: 74;
+}
+
+.contacts {
+  display: grid;
+}
+.contact-name {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #444444;
+}
+.contact {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: #444444;
+}
+
+

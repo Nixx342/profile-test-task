@@ -1,7 +1,7 @@
 import './App.css'
 import logo from './assets/8z-logo.svg'
 import phone from './assets/phone.svg'
-import exit from './assets/exit-btn.svg'
+import exitBtn from './assets/exit-button.svg'
 import gift from './assets/gift.svg'
 import applications from './assets/applications.svg'
 import profile from './assets/profile.svg'
@@ -13,9 +13,14 @@ import about from './assets/about.svg'
 import profileLogo from './assets/profile-logo.svg'
 import editBtn from './assets/edit-btn.svg'
 import notice from './assets/notice-logo.svg'
+import money from './assets/money-icon.svg'
+import money2 from './assets/money-icon2.svg'
+
 import MenuItem from './Components/MenuItem'
 import { useState } from 'react'
 import DataElement from './Components/DataElement'
+// import exitBtn from './assets/svg/exitBtn.jsx'
+
 //////
 // Заменить SVG иконки на нормальные, без теней
 //////
@@ -32,7 +37,9 @@ let info = {
   issue_date: "01.01.2012",
   birth_place: "г. Москва",
   registration_adress: "г. Москва улица Ленина дом 22 квартира 13",
-  actual_adress: "г. Москва улица Ленина дом 22 квартира 13"
+  actual_adress: "г. Москва улица Ленина дом 22 квартира 13",
+  send_sms: false,
+  send_mail: false
 }
 
 function App() {
@@ -43,7 +50,7 @@ function App() {
         <img className='logo' src={logo} alt="8z-logo" />
         <div className='btn-phone-block'>
           <button className='exit-btn'>
-            <img className='exit-logo' src={exit} alt='exit'/>
+            <img className='exit-logo' src={exitBtn} alt='exit'/>
             Выйти
           </button>
           <span className='phone'>
@@ -96,7 +103,7 @@ function App() {
           <div className='profile-info'>
             <div className='personal-info'>
               <div className='personal-data data-card'>
-                <h3>Личные данные</h3>
+                <h3 className='info-name'>Личные данные</h3>
                 <DataElement name="Фамилия" data={info.secondname} editMode={editMode}/>
                 <DataElement name="Имя" data={info.firstname} editMode={editMode}/>
                 <DataElement name="Отчество" data={info.surname} editMode={editMode}/>
@@ -105,7 +112,7 @@ function App() {
                 <DataElement name="Почта" data={info.email} editMode={editMode}/>
               </div>
               <div className='passport-data data-card'>
-                <h3>Паспортные данные</h3>
+                <h3 className='info-name'>Паспортные данные</h3>
                 <DataElement name="Серия / Номер" data={info.passport_number} editMode={editMode}/>
                 <DataElement name="Код подразделения" data={info.department_code} editMode={editMode}/>
                 <DataElement name="Дата выдачи" data={info.issue_date} editMode={editMode}/>
@@ -115,11 +122,47 @@ function App() {
               </div>
             </div>
             <div className='settings'>
-              <h3>Настройки</h3>
+              <h3 className='info-name'>Настройки</h3>
+              <span className='settings-element'><input type='checkbox' className='checkbox sms'/>Получать уведомления по смс</span>
+              <span className='settings-element'><input type='checkbox' className='checkbox news-on-email'/>Согласие на e-mail рассылку новостей</span>
             </div>
           </div>
         </div>
       </main>
+      <footer>
+          <div className='footer-content'>
+            <div className='footer-content-top'>
+              <div>
+                <div className='footer-links'>
+                  <img src={logo} alt='8z logo'/>
+                  <div className='links-block'>
+                    <a>Наши тарифы</a>
+                    <a>Как получить</a>
+                    <a>Отзывы</a>
+                    <a>Требования к заемщику</a>
+                    <a>Вопрос ответ</a>
+                  </div>
+                </div>
+                <div className='legal-information'>
+                  <p className='legal-information-text'>
+                    ООО "ВОСЬМИЗАЙМ", ИНН 1685017396, ОГРН 1241600034400 
+                    420044, Россия, Респ. Татарстан, г. Казань, пр-кт Ямашева, д.36
+                  </p>
+                  <div className='money-icon'>
+                    <img className='small-money' src={money} alt='Money icon'/>
+                    <img className='big-money' src={money2} alt='Money icon'/>
+                  </div>
+                </div>
+              </div>
+              <div className='contacts'>
+                <span className='contact-name'>E-mail</span>
+                <a className='contact'>osh@it-groupp.ru</a>
+                <span className='contact-name'>Телефон</span>
+                <a className='contact'>+7 800 600 00 27</a>
+              </div>
+            </div>
+          </div>
+      </footer>
     </>
   )
 }

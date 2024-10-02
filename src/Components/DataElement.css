@@ -1,0 +1,27 @@
+.element {
+    padding-bottom: 10px;
+    margin-top: 14px;
+    /* height: 66px; */
+}
+.element-name {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #777777;
+    margin-bottom: 14px;
+    /* height: 21px; */
+}
+
+.element-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #444444;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* height: 41px; */
+}
+
+.element-input {
+    width: 100%;
+}
