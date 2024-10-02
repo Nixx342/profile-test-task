@@ -1,9 +1,9 @@
 import './MenuItem.css'
 import arrow from '../assets/right-arrow.svg'
 
-function MenuItem({ text, src }) {
+function MenuItem({ text, src, link}) {
   return (
-    <a className='menu-item'>
+    <a className='menu-item' href={link}>
       <span className='menu-item-info'>
         {src && <img src={src} alt="Icon 1" className="menu-item-icon" />}
         {text}
@@ -13,4 +13,4 @@ function MenuItem({ text, src }) {
   );
 }
 
-export default MenuItem;
+export default MenuItem; 

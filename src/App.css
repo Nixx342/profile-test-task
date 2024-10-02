@@ -89,6 +89,15 @@ main {
   font-size: 18px;
   color: #FFFFFF;
 }
+.menu-btn:hover{
+  background: #FFBD4C;
+  cursor: pointer;
+}
+.menu-btn:active{
+  background: #f8b542;
+  cursor: pointer;
+}
+
 .gift-logo{
   margin-right: 10px;
 }
@@ -96,10 +105,12 @@ main {
 .main-block {
   width: 1116px;
   height: 1000px;
-  background-color: aqua;
 }
 .head-main{
   height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .head-name {
   display: flex;
@@ -113,4 +124,65 @@ main {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 26px;
+}
+
+.edit-block {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  width: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.edit-btn {
+  cursor: pointer;
+}
+
+.notice {
+  width: 100%;
+  height: 46px;
+  background-color: #FFFFFF;
+  box-shadow: 1px 1px 4px 0px #0000002B;
+  border-radius: 10px 10px 10px 10px;
+  display: flex;
+  align-items: center;
+  margin-top: 17px;
+}
+.notice-logo {
+  margin-left: 36.17px;
+  margin-right: 40.17px;
+}
+.notice-text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.profile-info{
+  width: 100%;
+  background-color: #FFFFFF;
+  box-shadow: 1px 1px 4px 0px #0000002B;
+  border-radius: 10px 10px 10px 10px;
+  margin-top: 26px;
+}
+
+.personal-info {
+  /* height: 500px; */
+  margin: 27px 34px 0;
+  padding-bottom: 38px;
+  border-bottom: 1px solid #CDCDCD;
+  display: flex;
+  justify-content: space-between;
+}
+
+.data-card {
+  width: 484px;
+  text-align: left;
+}
+
+.settings {
+  width: 100%;
+  margin: 27px 34px 0;
+  padding-bottom: 27px;
 }
