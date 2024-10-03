@@ -229,7 +229,7 @@ footer {
 }
 .footer-content {
   width: calc(100vw - 452px);
-  
+  margin-top: 60px;
   /* margin: 226px, 20px, 0; */
 }
 .footer-content-top {
@@ -263,21 +263,23 @@ footer {
   justify-content: space-around;
 }
 .small-money {
-  width: 46;
-  height: 43;
+  width: 46px;
+  height: 43px;
+  transform: rotate(-36.96deg);
 }
 .big-money {
-  width: 78;
-  height: 74;
+  width: 78px;
+  height: 74px;
+  transform: rotate(45.37deg)
 }
 
 .contacts {
   display: grid;
 }
 .contact-name {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  font-family: Roboto;
   font-size: 12px;
+  font-weight: 400;
   color: #444444;
 }
 .contact {
@@ -286,5 +288,58 @@ footer {
   font-size: 30px;
   color: #444444;
 }
+.footer-content-middle { 
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 27px;
+}
+
+.footer-content-middle > p{
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 400;
+  color: #444444;
+  opacity: 0.5;
+  width: 25%;
+  /* border-left: 1px solid #444444; */
+  border-right: 1px solid #444444;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.footer-content-middle > p:first-child {
+  padding-left: 0;
+}
+
+.footer-content-middle > p:last-child {
+  border: none;
+  padding-right: 0;
+}
+
+.footer-content-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  /* border-bottom: 1px solid #444444; */
+  border-bottom: 1px solid rgba(68, 68, 68, 0.5);
+  margin-bottom: 5px;
+  /* opacity: 0.5; */
+}
+
+.footer-content-bottom > a{
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 400;
+  color: #444444;
+  text-decoration: underline;
+}
 
 
+
+.footer-content-bottom > a:last-child{
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 400;
+  color: #D87B03;
+}

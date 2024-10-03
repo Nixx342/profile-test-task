@@ -15,6 +15,7 @@ import editBtn from './assets/edit-btn.svg'
 import notice from './assets/notice-logo.svg'
 import money from './assets/money-icon.svg'
 import money2 from './assets/money-icon2.svg'
+import monet from './assets/monet2.svg'
 
 import MenuItem from './Components/MenuItem'
 import { useState } from 'react'
@@ -149,8 +150,10 @@ function App() {
                     420044, Россия, Респ. Татарстан, г. Казань, пр-кт Ямашева, д.36
                   </p>
                   <div className='money-icon'>
-                    <img className='small-money' src={money} alt='Money icon'/>
-                    <img className='big-money' src={money2} alt='Money icon'/>
+                    {/* <img className='small-money' src={money} alt='Money icon'/>
+                    <img className='big-money' src={money2} alt='Money icon'/> */}
+                    <img className='small-money' src={monet} alt='Money icon'/>
+                    <img className='big-money' src={monet} alt='Money icon'/>
                   </div>
                 </div>
               </div>
@@ -160,6 +163,34 @@ function App() {
                 <span className='contact-name'>Телефон</span>
                 <a className='contact'>+7 800 600 00 27</a>
               </div>
+            </div>
+            <div className='footer-content-middle'>
+              <p>Подавая заявку Вы соглашаетесь, что заявка действует
+                 бессрочно и может быть отозвана 
+                 путем отправки номера телефона через форму Отписаться от рассылок.</p>
+              <p>Все материалы, размещенные на сайте являются собственностью 
+                владельцев сайта, либо собственностью организаций, с которыми 
+                у владельцев сайта есть соглашение о размещении материалов. Для 
+                аналитических целей на сайте работает система статистики, которая 
+                собирает информацию о посещенных страницах сайта, заполненных формах 
+                и т.д.</p>
+              <p>Регистрируясь на сайте или оставляя тем или иным способом свои 
+                персональные данные (информацию о себе), Вы предоставляете право 
+                обрабатывать вашу персональную информацию в соответствии с Политикой 
+                обработки персональных данных сайта.</p>
+              <p>Вся представленная на сайте информация, касающаяся финансовых 
+                услуг, носит информационный характер и ни при каких условиях не 
+                является публичной офертой, определяемой положениями статьи 437 
+                Гражданского кодекса РФ. Нажатие на кнопку «Получить деньги», а 
+                также последующее заполнение тех или иных форм, не накладывает на 
+                владельцев сайта никаких обязательств, не гарантирует получение 
+                денежных средств.</p>
+            </div>
+            <div className='footer-content-bottom'>
+              <a>Отписаться от рассылок</a>
+              <a>Политика обработки персональных данных</a>
+              <a>Политика сбора cookie</a>
+              <a>Согласие на звонки и email-рассылки с домена отправителя</a>
             </div>
           </div>
       </footer>
