@@ -1,4 +1,5 @@
 import './App.css'
+
 import logo from './assets/8z-logo.svg'
 import phone from './assets/phone.svg'
 import exitBtn from './assets/exit-button.svg'
@@ -19,14 +20,6 @@ import DataElement from './Components/DataElement'
 import MenuItem from './Components/MenuItem'
 
 import { useState } from 'react'
-import { useForm } from 'react-hook-form';
-
-
-// import exitBtn from './assets/svg/exitBtn.jsx'
-
-//////
-// Заменить SVG иконки на нормальные, без теней
-//////
 
 
 function App() {
@@ -114,7 +107,6 @@ function App() {
                   <img src={editBtn} alt='edit-logo'/>
                 </span>
             }
-            
           </div>
           <div className='notice'>
             <img src={notice} alt='notice-logo' className='notice-logo'/>
