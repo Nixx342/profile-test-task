@@ -211,9 +211,18 @@ main {
   font-weight: 400;
   font-size: 16px;
   color: #444444;
+  display: flex;
+  align-items: center;
+
+  display: block;
+  user-select: none;
+  position: relative;
 }
+
+
 .checkbox {
   margin-right: 8px;
+  border: 2px solid red;
 }
 
 footer { 
@@ -223,14 +232,13 @@ footer {
   border-radius: 60px 60px 0 0;
   display: flex;
   justify-content: center;
-  /* Убрать высоту */
-  height: 300px; 
-  /*  */
 }
 .footer-content {
-  width: calc(100vw - 452px);
+  /* width: calc(100vw - 452px); */
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
   margin-top: 60px;
-  /* margin: 226px, 20px, 0; */
 }
 .footer-content-top {
   display: flex;
@@ -240,12 +248,17 @@ footer {
 .footer-links {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 .links-block {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 16px;
   color: #444444;
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  
 }
 .legal-information {
   display: flex;

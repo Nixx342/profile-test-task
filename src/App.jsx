@@ -13,38 +13,59 @@ import about from './assets/about.svg'
 import profileLogo from './assets/profile-logo.svg'
 import editBtn from './assets/edit-btn.svg'
 import notice from './assets/notice-logo.svg'
-import money from './assets/money-icon.svg'
-import money2 from './assets/money-icon2.svg'
 import monet from './assets/monet2.svg'
 
-import MenuItem from './Components/MenuItem'
-import { useState } from 'react'
 import DataElement from './Components/DataElement'
+import MenuItem from './Components/MenuItem'
+
+import { useState } from 'react'
+import { useForm } from 'react-hook-form';
+
+
 // import exitBtn from './assets/svg/exitBtn.jsx'
 
 //////
 // Заменить SVG иконки на нормальные, без теней
 //////
 
-let info = {
-  secondname: "Иванов",
-  firstname: "Иван",
-  surname: "Иванович",
-  birthday: "01.01.2000",
-  phone: "+7 (999) 999 99-99",
-  email: "example@mail.com",
-  passport_number: "22 12 / 324842",
-  department_code: "520-001",
-  issue_date: "01.01.2012",
-  birth_place: "г. Москва",
-  registration_adress: "г. Москва улица Ленина дом 22 квартира 13",
-  actual_adress: "г. Москва улица Ленина дом 22 квартира 13",
-  send_sms: false,
-  send_mail: false
-}
 
 function App() {
   const [editMode, setEditMode] = useState (false)
+  const [data, setData] = useState (
+    {
+      secondname: "Иванов",
+      firstname: "Иван",
+      surname: "Иванович",
+      birthday: "2000-01-01",
+      phone: "+7 (999) 999 99-99",
+      email: "example@mail.com",
+      passport_number: "22 12 / 324842",
+      department_code: "520-001",
+      issue_date: "2012-01-01",
+      birth_place: "г. Москва",
+      registration_adress: "г. Москва улица Ленина дом 22 квартира 13",
+      actual_adress: "г. Москва улица Ленина дом 22 квартира 13",
+      send_sms: false,
+      send_mail: false
+    }
+  )
+  const [newData, setNewData] = useState (data)
+  
+  const setEditdata = () => {
+    setData(newData)
+    setEditMode(false)
+  }
+  const closeEditMode = () => {
+    setNewData(data)
+    setEditMode(false)
+  }
+  const handleFieldChange = (fieldName, newValue) => {
+    setNewData((prevData) => ({
+      ...prevData,
+      [fieldName]: newValue,
+    }));
+  };
+
   return (
     <>
       <header>
@@ -56,7 +77,7 @@ function App() {
           </button>
           <span className='phone'>
             <img className='phone-logo' src={phone} alt="phone" />
-            8 800 100 10 10
+            <a>8 800 100 10 10</a>
           </span>
         </div>
       </header>
@@ -84,8 +105,8 @@ function App() {
               editMode 
               ? 
                 <span className='edit-block edit-mode'>
-                  <button onClick={() => setEditMode(false)}>Отменить</button>
-                  <button onClick={() => setEditMode(false)}>Сохранить</button>
+                  <button onClick={() => closeEditMode()}>Отменить</button>
+                  <button onClick={() => setEditdata()}>Сохранить</button>
                 </span> 
               : 
                 <span className='edit-block edit-btn' onClick={() => setEditMode(true)}>
@@ -105,27 +126,106 @@ function App() {
             <div className='personal-info'>
               <div className='personal-data data-card'>
                 <h3 className='info-name'>Личные данные</h3>
-                <DataElement name="Фамилия" data={info.secondname} editMode={editMode}/>
-                <DataElement name="Имя" data={info.firstname} editMode={editMode}/>
-                <DataElement name="Отчество" data={info.surname} editMode={editMode}/>
-                <DataElement name="Дата рождения" data={info.birthday} editMode={editMode}/>
-                <DataElement name="Телефон" data={info.phone} editMode={editMode}/>
-                <DataElement name="Почта" data={info.email} editMode={editMode}/>
+                <DataElement 
+                  name="Фамилия" 
+                  data={data.secondname} 
+                  editMode={editMode} 
+                  type="text"
+                  onChange={(value) => handleFieldChange('secondname', value)}
+                />
+                <DataElement 
+                  name="Имя" 
+                  data={data.firstname} 
+                  editMode={editMode} 
+                  type="text"
+                  onChange={(value) => handleFieldChange('firstname', value)}
+                />
+                <DataElement 
+                  name="Отчество" 
+                  data={data.surname} 
+                  editMode={editMode} 
+                  type="text"
+                  onChange={(value) => handleFieldChange('surname', value)}
+                />
+                <DataElement 
+                  name="Дата рождения" 
+                  data={data.birthday} 
+                  editMode={editMode} 
+                  type="date"
+                  onChange={(value) => handleFieldChange('birthday', value)}
+                />
+                <DataElement 
+                  name="Телефон" 
+                  data={data.phone} 
+                  editMode={editMode} 
+                  type="phone"
+                  onChange={(value) => handleFieldChange('phone', value)}
+                />
+                <DataElement 
+                  name="Почта" 
+                  data={data.email} 
+                  editMode={editMode} 
+                  type="email"
+                  onChange={(value) => handleFieldChange('email', value)}
+                />
               </div>
               <div className='passport-data data-card'>
                 <h3 className='info-name'>Паспортные данные</h3>
-                <DataElement name="Серия / Номер" data={info.passport_number} editMode={editMode}/>
-                <DataElement name="Код подразделения" data={info.department_code} editMode={editMode}/>
-                <DataElement name="Дата выдачи" data={info.issue_date} editMode={editMode}/>
-                <DataElement name="Место рождения" data={info.birth_place} editMode={editMode}/>
-                <DataElement name="Адрес регистрации" data={info.registration_adress} editMode={editMode}/>
-                <DataElement name="Фактический адрес" data={info.actual_adress} editMode={editMode}/>
+                <DataElement 
+                  name="Серия / Номер" 
+                  data={data.passport_number} 
+                  editMode={editMode} 
+                  type="text"
+                  onChange={(value) => handleFieldChange('passport_number', value)}
+                />
+                <DataElement 
+                  name="Код подразделения" 
+                  data={data.department_code} 
+                  editMode={editMode} 
+                  type="text"
+                  onChange={(value) => handleFieldChange('department_code', value)}
+                />
+                <DataElement 
+                  name="Дата выдачи" 
+                  data={data.issue_date} 
+                  editMode={editMode} 
+                  type="date"
+                  onChange={(value) => handleFieldChange('issue_date', value)}
+                />
+                <DataElement
+                  name="Место рождения" 
+                  data={data.birth_place} 
+                  editMode={editMode} 
+                  type="text"
+                  onChange={(value) => handleFieldChange('birth_place', value)}
+                />
+                <DataElement 
+                  name="Адрес регистрации" 
+                  data={data.registration_adress} 
+                  editMode={editMode} 
+                  type="text"
+                  onChange={(value) => handleFieldChange('registration_adress', value)}
+                />
+                <DataElement 
+                  name="Фактический адрес" 
+                  data={data.actual_adress} 
+                  editMode={editMode} 
+                  type="text"
+                  onChange={(value) => handleFieldChange('actual_adress', value)}
+                />
               </div>
             </div>
             <div className='settings'>
               <h3 className='info-name'>Настройки</h3>
-              <span className='settings-element'><input type='checkbox' className='checkbox sms'/>Получать уведомления по смс</span>
-              <span className='settings-element'><input type='checkbox' className='checkbox news-on-email'/>Согласие на e-mail рассылку новостей</span>
+              <lable className='settings-element'>
+                <input type='checkbox' className='checkbox'/>
+                <span>Получать уведомления по смс</span>
+              </lable>
+              <lable className='settings-element'>
+                <input type='checkbox' className='checkbox'/>
+                <span>Согласие на e-mail рассылку новостей</span>
+              </lable>
+              
             </div>
           </div>
         </div>
@@ -150,8 +250,6 @@ function App() {
                     420044, Россия, Респ. Татарстан, г. Казань, пр-кт Ямашева, д.36
                   </p>
                   <div className='money-icon'>
-                    {/* <img className='small-money' src={money} alt='Money icon'/>
-                    <img className='big-money' src={money2} alt='Money icon'/> */}
                     <img className='small-money' src={monet} alt='Money icon'/>
                     <img className='big-money' src={monet} alt='Money icon'/>
                   </div>
