@@ -15,6 +15,7 @@ import profileLogo from './assets/profile-logo.svg'
 import editBtn from './assets/edit-btn.svg'
 import notice from './assets/notice-logo.svg'
 import monet from './assets/monet2.svg'
+import menuMobile from './assets/menu-mobile.svg'
 
 import DataElement from './Components/DataElement'
 import MenuItem from './Components/MenuItem'
@@ -69,10 +70,11 @@ function App() {
               <img className='exit-logo' src={exitBtn} alt='exit'/>
               Выйти
             </button>
+            <img src={menuMobile} alt='Mobile menu' className='menu-mobile'/>
             <span className='phone'>
-            <img className='phone-logo' src={phone} alt="phone"/>
-            <a href={"tel:88001001010"}>8 800 100 10 10</a>
-          </span>
+              <img className='phone-logo' src={phone} alt="phone"/>
+              <a href={"tel:88001001010"}>8 800 100 10 10</a>
+            </span>
           </div>
         </header>
         <main>
@@ -95,18 +97,19 @@ function App() {
               <img className='main-head-logo' src={profileLogo} alt="profile-logo"/>
               <span className='main-head-text'>Профиль</span>
             </span>
+            <img src={editBtn} alt='edit-logo' className='edit-logo-mobile' onClick={() => setEditMode(!editMode)}/>
               {
                 editMode
                     ?
                     <span className='edit-block edit-mode'>
-                  <button onClick={() => closeEditMode()}>Отменить</button>
-                  <button onClick={() => setEditdata()}>Сохранить</button>
-                </span>
+                      <button onClick={() => closeEditMode()}>Отменить</button>
+                      <button onClick={() => setEditdata()}>Сохранить</button>
+                    </span>
                     :
                     <span className='edit-block edit-btn' onClick={() => setEditMode(true)}>
-                  Редактировать
-                  <img src={editBtn} alt='edit-logo'/>
-                </span>
+                      <span className='edit-block-text'>Редактировать</span>
+                      <img src={editBtn} alt='edit-logo'/>
+                    </span>
               }
             </div>
             <div className='notice'>
@@ -211,11 +214,19 @@ function App() {
               <div className='settings'>
                 <h3 className='info-name'>Настройки</h3>
                 <div className={'settings-element'}>
-                  <input type='checkbox' id={'checkbox'}/>
+                  <input 
+                    type='checkbox' 
+                    id={'checkbox'}
+                    onChange={(value) => handleFieldChange('send_sms', value)}
+                  />
                   <lable htmlFor={"checkbox"}>Получать уведомления по смс</lable>
                 </div>
                 <div className={'settings-element'}>
-                  <input type='checkbox' id={'checkbox'}/>
+                  <input 
+                    type='checkbox' 
+                    id={'checkbox'}
+                    onChange={(value) => handleFieldChange('send_mail', value)}
+                  />
                   <lable htmlFor={"checkbox"}>Согласие на e-mail рассылку новостей</lable>
                 </div>
               </div>
