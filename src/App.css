@@ -152,10 +152,11 @@ main {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 18px;
-    width: 175px;
+    /* width: 175px; */
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 16px;
 }
 
 .edit-btn {
@@ -423,8 +424,35 @@ footer {
     font-weight: 400;
     color: #D87B03;
 }
+.close-edit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 128px;
+    height: 31px;
+    background-color: #ADADAD;
+    border: none;
+    border-radius: 50px 50px 50px 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #FFFFFF;
 
-
+}
+.save-edit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 128px;
+    height: 31px;
+    background: linear-gradient(180deg, #FFBD4C 0%, #D87B03 100%);
+    border: none;
+    border-radius: 50px 50px 50px 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #FFFFFF;
+}
 
 
 

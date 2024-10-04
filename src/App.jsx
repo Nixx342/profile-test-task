@@ -44,6 +44,7 @@ function App() {
     }
   )
   const [newData, setNewData] = useState (data)
+  
 
   const setEditdata = () => {
     setData(newData)
@@ -102,8 +103,18 @@ function App() {
                 editMode
                     ?
                     <span className='edit-block edit-mode'>
-                      <button onClick={() => closeEditMode()}>Отменить</button>
-                      <button onClick={() => setEditdata()}>Сохранить</button>
+                      <button 
+                        onClick={() => closeEditMode()} 
+                        className='close-edit-btn'
+                      >
+                        Отменить
+                      </button>
+                      <button 
+                        onClick={() => setEditdata()}
+                        className='save-edit-btn'
+                      >
+                        Сохранить
+                      </button>
                     </span>
                     :
                     <span className='edit-block edit-btn' onClick={() => setEditMode(true)}>
