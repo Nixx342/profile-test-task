@@ -458,13 +458,13 @@ footer {
     }
     .exit-btn {
       width: 50%;
+      max-width: 100px;
       height: 24px;
       font-size: 14px;
+      margin-right: 20px;
     }
     .exit-logo {
         height: 30px;
-        margin-left: 4px;
-        margin-right: 4px;
     }
     .notice {
         display: flex;

@@ -1,5 +1,6 @@
 import './DataElement.css'
 import { useState, useEffect } from 'react';
+import MaskedInput from 'react-text-mask';
 // Приведение даты формата YYYY-MM-DD в формат DD.MM.YYYY для отображения
 const formatDate = (date) => {
   const [year, month, day] = date.split('-');
@@ -14,12 +15,22 @@ const is18years = (date) => {
   return age > 18 || (age === 18 && today.getMonth() > birthDate.getMonth()) || (age === 18 && today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
 };
 
+// Проверка но корректность почты
+const validateEmail = (data) => {
+  return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(data)
+} 
+
 function DataElement({ name, data, editMode, type, onChange }) {
   const [isAdult, setIsAdult] = useState(is18years(data));
+  const [validEmailStatus, setValidEmail] = useState(validateEmail(data));
 
   useEffect(() => {
-    setIsAdult(is18years(data));
-  }, [data]);
+    if (type === 'date') {
+      setIsAdult(is18years(data));
+    } else if (type === 'email') {
+      setValidEmail(validateEmail(data));
+    }
+  }, [data, type]);
 
   const handleDateChange = (e) => {
     const newDate = e.target.value;
@@ -27,7 +38,17 @@ function DataElement({ name, data, editMode, type, onChange }) {
     setIsAdult(is18years(newDate));
   };
 
+  const handleEmailChange = (e) => {
+    const newEmail = e.target.value;
+    onChange(newEmail);
+    setValidEmail(validateEmail(newEmail));
+  };
 
+  const handleChange = (e) => {    
+    onChange(e.target.value);
+  };
+  const phoneNumberMask = ['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/];
+  const passportNumberMask = [/[1-9]/,/\d/,' ',/\d/,/\d/,' ','/',' ',/\d/,/\d/,/\d/,/\d/,/\d/,/\d/];
 
   const renderContent = () => {
     switch (name) {
@@ -67,16 +88,17 @@ function DataElement({ name, data, editMode, type, onChange }) {
       case "Телефон":
         return (
           <>
-          {editMode ? (
-              <>
-                <input 
-                  type={type} 
-                  defaultValue={data} 
-                  className="element-input"
-                  onChange={handleDateChange}
+            {editMode ? (
+                <MaskedInput
+                  type='tel'
+                  mask={phoneNumberMask}
+                  placeholder={'+7 (___) ___-__-__'}
+                  guide={false}
+                  showMask
+                  defaultValue={data}
+                  onChange={handleChange}
+                  className="input"
                 />
-                {/* {!isAdult && <span>Вам нет 18 лет</span>} */}
-              </>
             ) : (
               <span className="element-text">{data}</span>
             )}
@@ -91,9 +113,9 @@ function DataElement({ name, data, editMode, type, onChange }) {
                   type={type} 
                   defaultValue={data} 
                   className="element-input"
-                  onChange={handleDateChange}
+                  onChange={handleEmailChange}
                 />
-                {/* {!isAdult && <span>Вам нет 18 лет</span>} */}
+                {!validEmailStatus && <span>Не корректно введен email</span>}
               </>
             ) : (
               <span className="element-text">{data}</span>
@@ -105,13 +127,16 @@ function DataElement({ name, data, editMode, type, onChange }) {
           <>
           {editMode ? (
               <>
-                <input 
-                  type={type} 
-                  defaultValue={data} 
-                  className="element-input"
-                  onChange={handleDateChange}
+                <MaskedInput
+                  type='passnum'
+                  mask={passportNumberMask}
+                  placeholder={'__ __ / ______'}
+                  guide={false}
+                  showMask
+                  defaultValue={data}
+                  onChange={handleChange}
+                  className="input"
                 />
-                {/* {!isAdult && <span>Вам нет 18 лет</span>} */}
               </>
             ) : (
               <span className="element-text">{data}</span>
