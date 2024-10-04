@@ -60,7 +60,7 @@ function DataElement({ name, data, editMode, type, onChange }) {
 
   const phoneNumberMask = ['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/];
   const passportNumberMask = [/[1-9]/,/\d/,' ',/\d/,/\d/,' ','/',' ',/\d/,/\d/,/\d/,/\d/,/\d/,/\d/];
-
+  const departmentCode = [/[1-9]/,/\d/,/\d/,'-',/\d/,/\d/,/\d/]
   const renderContent = () => {
     switch (name) {
       case "Дата рождения":
@@ -159,11 +159,15 @@ function DataElement({ name, data, editMode, type, onChange }) {
           <>
           {editMode ? (
               <>
-                <input 
-                  type={type} 
-                  defaultValue={data} 
-                  className="element-input"
-                  onChange={handleDateChange}
+                <MaskedInput
+                  type='depcod'
+                  mask={departmentCode}
+                  placeholder={'___-___'}
+                  guide={false}
+                  showMask
+                  defaultValue={data}
+                  onChange={handleChange}
+                  className="input"
                 />
               </>
             ) : (
