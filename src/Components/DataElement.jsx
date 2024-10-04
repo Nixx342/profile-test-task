@@ -1,6 +1,7 @@
 import './DataElement.css'
 import { useState, useEffect } from 'react';
 import MaskedInput from 'react-text-mask';
+import DadataInput from './DadataInput';
 // Приведение даты формата YYYY-MM-DD в формат DD.MM.YYYY для отображения
 const formatDate = (date) => {
   const [year, month, day] = date.split('-');
@@ -21,6 +22,7 @@ const validateEmail = (data) => {
 } 
 
 function DataElement({ name, data, editMode, type, onChange }) {
+
   const [isAdult, setIsAdult] = useState(is18years(data));
   const [validEmailStatus, setValidEmail] = useState(validateEmail(data));
 
@@ -47,6 +49,15 @@ function DataElement({ name, data, editMode, type, onChange }) {
   const handleChange = (e) => {    
     onChange(e.target.value);
   };
+
+
+  //////////
+  const handleFullNameChange = (value) => {
+    onChange(value);
+  };
+  //////////
+
+
   const phoneNumberMask = ['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/];
   const passportNumberMask = [/[1-9]/,/\d/,' ',/\d/,/\d/,' ','/',' ',/\d/,/\d/,/\d/,/\d/,/\d/,/\d/];
 
@@ -63,7 +74,7 @@ function DataElement({ name, data, editMode, type, onChange }) {
                   className="element-input"
                   onChange={handleDateChange}
                 />
-                {!isAdult && <span>Вам нет 18 лет</span>}
+                {!isAdult && <span className='error-message'>Вам нет 18 лет</span>}
               </>
             ) : (
               <span className="element-text">{formatDate(data)}</span>
@@ -115,7 +126,7 @@ function DataElement({ name, data, editMode, type, onChange }) {
                   className="element-input"
                   onChange={handleEmailChange}
                 />
-                {!validEmailStatus && <span>Не корректно введен email</span>}
+                {!validEmailStatus && <span className='error-message'>Не корректно введен email</span>}
               </>
             ) : (
               <span className="element-text">{data}</span>
@@ -154,13 +165,50 @@ function DataElement({ name, data, editMode, type, onChange }) {
                   className="element-input"
                   onChange={handleDateChange}
                 />
-                {/* {!isAdult && <span>Вам нет 18 лет</span>} */}
               </>
             ) : (
               <span className="element-text">{data}</span>
             )}
           </>
         )
+        //Dadata
+        case "Имя":
+        return (
+          <>
+          {editMode ? (
+              <>
+                <DadataInput onChange={handleFullNameChange} name={data}/>
+              </>
+            ) : (
+              <span className="element-text">{data}</span>
+            )}
+          </>
+        )
+        case "Фамилия":
+          return (
+            <>
+            {editMode ? (
+                <>
+                  <DadataInput onChange={handleFullNameChange} name={data}/>
+                </>
+              ) : (
+                <span className="element-text">{data}</span>
+              )}
+            </>
+          )
+        case "Отчество":
+          return (
+            <>
+            {editMode ? (
+                <>
+                  <DadataInput onChange={handleFullNameChange} name={data}/>
+                </>
+              ) : (
+                <span className="element-text">{data}</span>
+              )}
+            </>
+          )
+        //
       default:
         return (
           <>

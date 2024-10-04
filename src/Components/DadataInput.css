@@ -1,0 +1,35 @@
+.dadata-input {
+    width: 100%;
+    border: 0;
+}
+input {
+    width: 100%;
+}
+ul {
+    text-decoration: none;
+}
+li {
+    text-decoration: none;
+}
+.suggestion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+.suggestion > span {
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #444444;
+}
+
+.suggestion > span:hover {
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color:#ADADAD;
+}
